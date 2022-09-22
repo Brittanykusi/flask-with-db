@@ -14,6 +14,14 @@ def get_db_connection():
     # for more information about these two lines, good conversation on stackoverflow: https://stackoverflow.com/questions/44009452/what-is-the-purpose-of-the-row-factory-method-of-an-sqlite3-connection-object found there
     return conn
 
+@app.route('/')
+def index():
+    db = get_db_connection()
+    patientListSql = db.execute('SELECT * FROM patient_table').fetchall()
+    db.close()
+    print('patientListSql:', patientListSql)
+    return render_template('index.html', listPatients=patientListSql)
+
 @app.route('/patients')
 def index():
     db = get_db_connection()
