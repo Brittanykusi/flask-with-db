@@ -20,9 +20,13 @@
             <table class="table table-light table-hover">
                 <tr>  
                     <th> MRN </th>
-                    <th> First Name </th>
+                    <th> First Name </th>3
                     <th> Last Name </th>
                     <th> DOB </th>
+                    <th> Patient Status </th>
+                    <th> Provider Name </th>
+                    <th> ICD Code </th>
+                    <th> Last Visit </th>
                 </tr>
                 {% for patient in listPatients %}
                     <tr>
@@ -30,6 +34,10 @@
                         <td> {{ patient.firstName }} </td>
                         <td> {{ patient.lastName }} </td>
                         <td> {{ patient.DOB }} </td>
+                        <td> {{ patient.patientstatus }} </td>
+                        <td> {{ patient.providerame }} </td>
+                        <td> {{ patient.icd }} </td>
+                        <td> {{ patient.lastvisit }} </td>
                     </tr>
                 {% endfor %}
             </table>
